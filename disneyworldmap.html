@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Add a default marker</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+<style>
+  body { margin: 0; padding: 0; }
+  #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  .map-overlay{
+  position: absolute;
+  left: 0;
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<div id="map"></div>
+<div class="map-overlay top">
+  <button style="font-size: 2em;" onclick="move()">
+    Disney Parks in Florida
+  </button>
+</div>
+
+<script>
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoib2xlc2tvb2xtb20iLCJhIjoiY2t0aTYwMXBpMHl5dzJvb2xnN3RzZno5ayJ9.BfDA6LxHPBb8ZB62YcWXkA';
+
+let map = new mapboxgl.Map({
+     container: 'map',
+     style:'mapbox://styles/mapbox/streets-v11',
+     center: [-81.590577, 28.357839],
+     zoom: 10.5
+     });
+
+let marker = new mapboxgl.Marker()
+    .setLngLat([-81.581195, 28.419799])
+    .addTo(map);
+const disneyParks = [
+  [-81.591313, 28.359719],
+  [-81.549416, 28.374382],
+  [-81.468193, 28.474386],
+  [-81.471565, 28.471090],
+  [-81.473161, 28.461587]
+ ];
+  
+let counter = 0;
+function move(){
+  setTimeout(() =>{
+    if (counter >= disneyParks.length) return;
+    marker.setLngLat(disneyParks[counter]);
+    counter++;
+    move();
+  }, 1000);
+  
+}
+</script>
+</body>
+</html>
