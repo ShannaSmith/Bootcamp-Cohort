@@ -3,7 +3,7 @@
 **Maintaining Information on a Web Page while Scheduling and Repeating Executions**
 
 **Description**
-This program was created during week two of MIT's Womens Chort Full-stack Developer bootcamp.
+This program was created during week two of MIT's Womens Chort MERN Full-stack Developer bootcamp.
 The purpose of this task is to add dynamic content to be displayed on the console. This dynamic content is be scheduled, repeated, and will change over an interval of time. 
 
 **Usage**
